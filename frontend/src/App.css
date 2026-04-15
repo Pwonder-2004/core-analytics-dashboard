@@ -201,7 +201,7 @@ tr:hover td { background-color: rgba(126, 87, 194, 0.02); }
    ========================================= */
 
 @media (max-width: 768px) {
-  /* Hero section padding fix */
+  /* 1. Hero Section Fix */
   .hero-section {
     flex-direction: column !important;
     padding: 3rem 1.5rem !important;
@@ -215,12 +215,6 @@ tr:hover td { background-color: rgba(126, 87, 194, 0.02); }
     line-height: 1.1;
   }
 
-  .hero-subtitle {
-    font-size: 1rem !important;
-    margin-bottom: 2.5rem;
-  }
-
-  /* Floating visual block layout for mobile */
   .hero-visuals {
     display: flex !important;
     flex-direction: column !important;
@@ -232,7 +226,6 @@ tr:hover td { background-color: rgba(126, 87, 194, 0.02); }
     padding-bottom: 3rem;
   }
 
-  /* Core fix: Remove absolute, stack vertically */
   .floating-card {
     position: relative !important; 
     width: 95% !important; 
@@ -244,23 +237,65 @@ tr:hover td { background-color: rgba(126, 87, 194, 0.02); }
     bottom: unset !important; 
     transform: unset !important; 
     padding: 1.2rem;
-    animation: none !important; /* Mobile par animation stability ke liye off */
-    border-left: 4px solid var(--color-purple) !important;
+    animation: none !important; 
   }
 
-  /* Specific border colors for mobile stack */
-  .card-1 { border-left-color: var(--color-green) !important; }
-  .card-2 { border-left-color: var(--color-orange) !important; }
-  .card-3 { border-left-color: var(--color-blue) !important; }
+  /* 2. Sidebar to Top Nav Fix */
+  .sidebar {
+    width: 100% !important;
+    height: auto !important;
+    padding: 1rem !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    position: relative !important;
+    flex-direction: column !important;
+    gap: 10px;
+  }
 
-  .cta-group {
+  .side-nav {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    padding: 5px 0;
+    gap: 10px;
+  }
+
+  .nav-item {
+    padding: 8px 12px !important;
+    font-size: 0.8rem !important;
+    white-space: nowrap;
+  }
+
+  .logo-area {
+    margin-bottom: 1rem !important;
     justify-content: center;
+  }
+
+  /* 3. Dashboard Content Fix */
+  .main-content {
+    padding: 1rem !important;
+    margin: 0 !important;
+    width: 100% !important;
+    overflow-x: hidden;
+  }
+
+  .resources-grid {
+    grid-template-columns: 1fr !important;
     width: 100%;
   }
 
-  /* Dashboard Adjustments */
-  .resources-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1rem;
+  .big-number {
+    font-size: 1.8rem !important;
+  }
+
+  .data-panel {
+    padding: 1rem !important;
+    width: 100% !important;
+    overflow-x: auto;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }
