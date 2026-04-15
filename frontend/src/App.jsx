@@ -19,9 +19,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState('light');
   const [activeTab, setActiveTab] = useState('overview'); 
-  const [profilePic, setProfilePic] = useState(null);
   const [greeting, setGreeting] = useState('');
-  const fileInputRef = useRef(null);
   
   const [page, setPage] = useState(1);
   const itemsPerPage = 15;
@@ -130,11 +128,6 @@ function App() {
   };
 
   const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    if (file) setProfilePic(URL.createObjectURL(file));
-  };
-
 
   // ==========================================
   // VIEW 1: THE LANDING PAGE
@@ -267,11 +260,6 @@ function App() {
             <button className="theme-toggle" onClick={toggleTheme}>
               {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </button>
-            <div className="profile-section" onClick={() => fileInputRef.current.click()}>
-              <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handleImageUpload} />
-              {profilePic ? <img src={profilePic} alt="Profile" className="profile-img" /> : <div className="profile-placeholder"><Upload size={16}/></div>}
-              <span className="admin-name">Palak</span>
-            </div>
           </div>
         </header>
 
@@ -451,21 +439,6 @@ function App() {
             </div>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '15px', paddingBottom: '20px', borderBottom: '1px solid var(--border-color)' }}>
-                {profilePic ? 
-                  <img src={profilePic} alt="Profile" style={{ width: '45px', height: '45px', borderRadius: '50%', objectFit: 'cover' }} /> : 
-                  <div className="profile-placeholder" style={{ width: '45px', height: '45px' }}><Upload size={18}/></div>
-                }
-                <div style={{ flexGrow: 1 }}>
-                  <p style={{ fontWeight: '600', margin: '0 0 4px 0' }}>Admin Dashboard User</p>
-                  <p className="text-muted" style={{ margin: 0, fontSize: '0.85rem' }}>Local Environment</p>
-                </div>
-                <div style={{ display: 'flex', gap: '10px' }}>
-                  <button onClick={() => fileInputRef.current.click()} style={{ padding: '6px 12px', background: 'var(--color-blue)', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontSize: '0.8rem', fontWeight: '500' }}>Update Image</button>
-                  {profilePic && <button onClick={() => setProfilePic(null)} style={{ padding: '6px 12px', background: 'transparent', color: '#ef4444', border: '1px solid #ef4444', borderRadius: '6px', cursor: 'pointer', fontSize: '0.8rem', fontWeight: '500' }}>Remove</button>}
-                </div>
-              </div>
-
               <div>
                 <h3 style={{ fontSize: '1.1rem', margin: '0 0 15px 0', color: 'var(--text-main)' }}>Database Rules</h3>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>

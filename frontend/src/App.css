@@ -271,6 +271,7 @@ tr:hover td { background-color: rgba(126, 87, 194, 0.02); }
   .side-nav {
     flex-direction: row !important;
     overflow-x: auto !important;
+    flex-wrap: nowrap !important;
     gap: 8px !important;
     padding: 5px 0 !important;
     width: 100%;
@@ -279,8 +280,9 @@ tr:hover td { background-color: rgba(126, 87, 194, 0.02); }
   .nav-item {
     padding: 6px 10px !important;
     font-size: 0.7rem !important;
-    white-space: nowrap;
+    white-space: nowrap !important;
     background: var(--bg-main);
+    flex-shrink: 0 !important;
   }
 
   /* Hidden on mobile for cleaner look */
