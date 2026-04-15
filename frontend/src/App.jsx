@@ -263,18 +263,13 @@ function App() {
             <h1>{greeting}, <strong>Admin</strong></h1>
             <p>Manage hostel allocation and database infrastructure.</p>
           </div>
-          <div className="header-controls">
-            <button className="theme-toggle" onClick={toggleTheme}>
+          {/* --- NAYA WALA CODE (Isko replace karo) --- */}
+         <div className="header-controls">
+             <button className="theme-toggle" onClick={toggleTheme}>
               {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
-            <div className="profile-section" onClick={() => fileInputRef.current.click()}>
-              <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handleImageUpload} />
-              {profilePic ? <img src={profilePic} alt="Profile" className="profile-img" /> : <div className="profile-placeholder"><Upload size={16}/></div>}
-              <span className="admin-name">Palak</span>
-            </div>
-          </div>
+             </button>
+         </div>
         </header>
-
         {activeTab === 'overview' && (
           <div className="dashboard-view fade-in">
              <div className="resources-grid">
